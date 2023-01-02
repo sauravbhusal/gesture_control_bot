@@ -1,8 +1,8 @@
 #include<WiFi.h>
 #include<HTTPClient.h>
 
-const char* ssid = "haddanali";
-const char* password = "87654321";
+const char* ssid = "WIFI_SSID_NAME";
+const char* password = "WIFI_PASSWORD";
 
 void setup()
 {
@@ -36,7 +36,7 @@ void loop()
   {
     HTTPClient http;
 
-    http.begin("http://192.168.43.117:5000");
+    http.begin(" IP-ADDRESS ");
     int httpCode = http.GET();
 
     if(httpCode > 0)
