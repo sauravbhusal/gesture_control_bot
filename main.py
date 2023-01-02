@@ -40,27 +40,27 @@ while True:
 
         cv2.putText(frame, str(upcount), (100,150), cv2.FONT_HERSHEY_SCRIPT_SIMPLEX, 5, (0, 0, 250), 3)
 
-        file = open('return.txt','w')
+        if upcount>=1:
+            file = open('return.txt', 'w')
+            if upcount == 1:
+                file.write('1')
+            elif upcount == 2:
+                file.write('2')
+            elif upcount == 3:
+                file.write('3')
+            elif upcount == 4 or 5:
+                file.write('4')
+            file.close()
+
+        else:
+            file = open('return.txt','w')
+            file.write('0')
+            file.close()
+    else:
+        file = open('return.txt', 'w')
         file.write('0')
         file.close()
-
-        file = open('return.txt', 'w')
-        if upcount == 0:
-            file.write('0')
-        elif upcount == 1:
-            file.write('1')
-        elif upcount == 2:
-            file.write('2')
-        elif upcount == 3:
-            file.write('3')
-        elif upcount == 4 or 5:
-            file.write('4')
-        else :
-            file.write('0')
-           
-
-        file.close()
-
+            
     cv2.imshow('frame', frame)
     if cv2.waitKey(1) == ord('q'):
         break
